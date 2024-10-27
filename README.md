@@ -1,0 +1,2 @@
+# Q3
+-The Flyweight design pattern reduces memory usage by sharing common (intrinsic) states among multiple objects instead of creating separate instances for each. It distinguishes between intrinsic state (shared) and extrinsic state (unique), allowing for fewer objects to be stored in memory. This leads to lower memory consumption and improved performance, especially when dealing with large quantities of similar objects
