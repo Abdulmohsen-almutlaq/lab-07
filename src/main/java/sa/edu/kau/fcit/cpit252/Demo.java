@@ -16,6 +16,8 @@ public class Demo {
     private JFrame frame;
 
     public Demo() {
+
+        // the GUI
         this.frame = new JFrame();
         this.frame.setTitle("Flyweight images");
         this.frame.setSize(800, 600);
@@ -26,6 +28,7 @@ public class Demo {
     }
 
     public void addImage(ImageIcon img, int x, int y) {
+        // add Image but x and y are external we are not storing it in the flyweight
         JLabel label = new JLabel();
         label.setIcon(img);
         System.out.println("Adding image icon " + img.getDescription());
@@ -38,7 +41,9 @@ public class Demo {
     public static void main(String[] args) {
         Demo demo = new Demo();
         ImageElementsFactory factory = new ImageElementsFactory();
+        // to get the images
 
+        // to  store IMAGE element
         List<ImageElement> elementList = new ArrayList<ImageElement>();
 
         System.out.println(
@@ -47,9 +52,11 @@ public class Demo {
 
         Random r = new Random();
         for (int i = 0; i < 10000; i++) {
+            // randomly select images
             String name = elements[r.nextInt(elements.length)] + ".png";
-            ImageElement e = factory.getFlyweight(name);
-            elementList.add(e);
+            ImageElement e = factory.getFlyweight(name); // we use flyweight if dosen't exist we add it
+            elementList.add(e);// here we add it to the list so we can display it
+
             try {
                 System.out.println("Image: " + e.getImageElement().toString());
                 demo.addImage(e.getImageElement(), 200 * i, 200 * i);
